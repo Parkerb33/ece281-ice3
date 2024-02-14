@@ -72,7 +72,7 @@ architecture test_bench of top_basys3_tb is
 	    signal i_sw2, i_sw1, i_sw0 : std_logic := '0'; 
         signal o_led1, o_led0 : std_logic := '0';
 	   
-	    signal w_S1 : std_logic;
+	    signal w_S1 : std_logic; --these prob dont work
         signal w_Cout1 : std_logic;
         signal w_Cout2 : std_logic;
 	-- finish declaring needed signals
@@ -95,11 +95,10 @@ begin
 	-- Implement the test plan here.  Body of process is continuously from time = 0  
 	test_process : process 
 	begin
-	
 	    w_sw <= o"0"; wait for 10 ns;
-		assert w_led = "00" report "bad o0" severity failure;
-            w_sw <= o"1"; wait for 10 ns;
-            	assert w_led = "01" report "bad o1" severity failure;
+            assert w_led = "00" report "bad 000" severity failure;
+        w_sw <= o"1"; wait for 10 ns;
+            assert w_led = "01" report "bad 001" severity failure;
 	    --You must fill in the remaining test cases.	
 	
 		wait; -- wait forever
