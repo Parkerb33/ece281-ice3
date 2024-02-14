@@ -58,14 +58,23 @@ architecture test_bench of top_basys3_tb is
 	
   -- declare the component of your top-level design unit under test (UUT)
   component top_basys3 is
-      port(
-          -- TODO
+      port(-- TODO
+        i_A     : in std_logic;
+        i_B     : in std_logic;
+        o_S     : out std_logic;
+        o_Cout  : out std_logic         
       );
   end component;
   
  
 	-- declare signals needed to stimulate the UUT inputs
 	   -- TODO
+	    signal i_sw2, i_sw1, i_sw0 : std_logic := '0'; 
+        signal o_led1, o_led0 : std_logic := '0';
+	   
+	    signal w_S1 : std_logic;
+        signal w_Cout1 : std_logic;
+        signal w_Cout2 : std_logic;
 	-- finish declaring needed signals
 begin
 	-- PORT MAPS ----------------------------------------
@@ -75,6 +84,11 @@ begin
 	top_basys3_inst : top_basys3 port map (
 	   sw => w_sw,
 	   led => w_led
+	   --trying to do it :l but theres 2 sets of iA/iB??
+	   i_A => i_sw0;
+	   i_B => i_sw1;
+	   i_B => i_sw2;
+	   o_S => o_led0;
 	);
 	-- PROCESSES ----------------------------------------	
 	-- Test Plan Process
